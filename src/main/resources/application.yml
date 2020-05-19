@@ -1,0 +1,19 @@
+spring:
+    application.name: springboot-resilience4j
+    jackson.serialization.indent_output: true
+
+management.endpoints.web.exposure.include: '*'
+management.endpoint.health.show-details: always
+
+management.health.diskspace.enabled: false
+management.health.circuitbreakers.enabled: true
+
+info:
+    name: ${spring.application.name}
+    description: A Spring Boot application using Resilience4J
+    environment: ${spring.profiles.active}
+    version: 0.1.0
+
+management.metrics.tags.application: ${spring.application.name}
+management.metrics.distribution.percentiles-histogram.http.server.requests: true
+management.metrics.distribution.percentiles-histogram.resilience4j.circuitbreaker.calls: true
