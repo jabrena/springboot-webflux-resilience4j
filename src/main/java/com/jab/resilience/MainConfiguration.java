@@ -17,6 +17,11 @@ import java.time.Duration;
 @Configuration
 public class MainConfiguration {
 
+    /**
+     * CircuitBreaker Configuration
+     *
+     * @return CircuitBreaker Configuration
+     */
     @Bean
     public CircuitBreakerConfig circuitBreakerConfig() {
 
@@ -41,11 +46,21 @@ public class MainConfiguration {
         return circuitBreakerConfig;
     }
 
+    /**
+     *
+     * @param circuitBreakerConfig CircuitBreaker Configuration
+     * @return CircuitBreker Registry
+     */
     @Bean
     public CircuitBreakerRegistry circuitBreakerRegistry(CircuitBreakerConfig circuitBreakerConfig) {
         return CircuitBreakerRegistry.of(circuitBreakerConfig);
     }
 
+    /**
+     * TimeLimiter Configuration
+     *
+     * @return TimeLimiterConfig
+     */
     @Bean
     public TimeLimiterConfig timeLimiterConfig() {
 
@@ -74,6 +89,14 @@ public class MainConfiguration {
     }
     */
 
+    /**
+     * Main configuration to use Circuit Breaker with Resilience4j support
+     *
+     * @param circuitBreakerConfig CircuitBreaker configuration
+     * @param timeLimiterConfig TimeLimiter configuration
+     * @param circuitBreakerRegistry CircuitBreaker Registry
+     * @return
+     */
     @Bean
     public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer2(
             CircuitBreakerConfig circuitBreakerConfig,

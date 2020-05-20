@@ -4,6 +4,19 @@
 
 - Resilience4J Configuration
 
+## How to build the project?
+
+```
+mvn clean test
+
+#Checkstyle report
+mvn clean site
+```
+
+## Plugins
+
+- https://plugins.jetbrains.com/plugin/1065-checkstyle-idea
+
 ## References
 
 - https://spring.io/blog/2019/04/16/introducing-spring-cloud-circuit-breaker

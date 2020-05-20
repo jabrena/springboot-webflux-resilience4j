@@ -36,13 +36,13 @@ class ServiceProtectedTests {
     WireMockServer wireMockServer;
 
     @BeforeEach
-    public void setup () {
+    public void setup() {
         wireMockServer = new WireMockServer(port);
         wireMockServer.start();
     }
 
     @AfterEach
-    public void teardown () {
+    public void teardown() {
         wireMockServer.stop();
     }
 
@@ -152,7 +152,7 @@ class ServiceProtectedTests {
 
     private void createWireMockStub(String currentState, String nextState) {
 
-        if(currentState.equals(FIRST_STATE)) {
+        if (currentState.equals(FIRST_STATE)) {
             wireMockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/greek"))
                 .inScenario(SCENARIO_NAME)
                 .whenScenarioStateIs(currentState)
@@ -161,7 +161,7 @@ class ServiceProtectedTests {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBodyFile("greek.json")));
-        } else if(currentState.equals(SECOND_STATE)) {
+        } else if (currentState.equals(SECOND_STATE)) {
             wireMockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/greek"))
                 .inScenario(SCENARIO_NAME)
                 .whenScenarioStateIs(currentState)

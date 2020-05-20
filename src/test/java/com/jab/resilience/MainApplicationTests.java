@@ -7,13 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MainApplicationTests {
 
     @Test
-	void contextLoads() {
+    void contextLoads() {
 
-	}
+    }
 
     @Test
     public void main() {
-        MainApplication.main(new String[] {});
+        MainApplication.main(new String[]{});
     }
 
 }

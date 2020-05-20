@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 @Slf4j
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ActuatorTests {
 
     @Autowired
@@ -22,9 +22,9 @@ public class ActuatorTests {
     public void given_app_when_callActuator_then_expectedResults() {
 
         webTestClient.get().uri(getAddress())
-                .accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().is3xxRedirection();
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus().is3xxRedirection();
     }
 
     private String getAddress() {
